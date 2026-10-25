@@ -57,18 +57,23 @@ fun CampusCardScreen() {
             .padding(16.dp)
     ) {
         // Шапка
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        Column(
+            modifier = Modifier.fillMaxWidth(),
         ) {
-            Box(
-                modifier = Modifier
-                    .size(56.dp)
-                    .background(MaterialTheme.colorScheme.primaryContainer)
-            )
-            Column {
-                Text("Ada Lovelace", style = MaterialTheme.typography.titleMedium)
-                Text("In class · Building B")
+            // Шапка
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(56.dp)
+                        .background(MaterialTheme.colorScheme.primaryContainer)
+                )
+                Column {
+                    Text("Ada Lovelace", style = MaterialTheme.typography.titleMedium)
+                    Text("In class · Building B")
+                }
             }
         }
         // Информация
