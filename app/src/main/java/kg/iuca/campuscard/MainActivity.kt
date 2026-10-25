@@ -89,7 +89,7 @@ fun CampusCardScreen() {
                 style = MaterialTheme.typography.titleMedium
             )
 
-            // Слот 1 (для Exercise 3 & 4)
+            // Слот 1
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
