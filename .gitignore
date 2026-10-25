@@ -1,0 +1,23 @@
+# Временные файлы сборщика и кэш
+.gradle/
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# Локальные конфигурации (пути к SDK и ключам)
+local.properties
+signing.properties
+secrets.properties
+
+# Настройки Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Исключение для Mac (если применимо)
+.DS_Store
+
+# Log файлы
+*.log
