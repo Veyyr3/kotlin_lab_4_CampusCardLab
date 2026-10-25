@@ -39,6 +39,54 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun ProfileHeader(
+    name: String,
+    status: String,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .size(56.dp)
+                .background(MaterialTheme.colorScheme.primaryContainer)
+        )
+        Column {
+            Text(text = name, style = MaterialTheme.typography.titleMedium)
+            Text(text = status)
+        }
+    }
+}
+
+@Composable
+fun ScheduleRow(
+    time: String,
+    title: String,
+    room: String,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = time,
+            style = MaterialTheme.typography.titleMedium
+        )
+        Text(
+            text = title,
+            modifier = Modifier
+                .weight(1f)
+                .padding(horizontal = 8.dp)
+        )
+        Text(text = room)
+    }
+}
+
+@Composable
 fun CampusCardScreen() {
     // Главная форма
     Column (
@@ -60,22 +108,11 @@ fun CampusCardScreen() {
         Column(
             modifier = Modifier.fillMaxWidth(),
         ) {
-            // Шапка
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .size(56.dp)
-                        .background(MaterialTheme.colorScheme.primaryContainer)
-                )
-                Column {
-                    Text("Ada Lovelace", style = MaterialTheme.typography.titleMedium)
-                    Text("In class · Building B")
-                }
-            }
-        }
+            ProfileHeader(
+                name = "Ada Lovelace",
+                status = "In class · Building B"
+            )
+
         // Информация
         Column(
             modifier = Modifier
@@ -89,57 +126,9 @@ fun CampusCardScreen() {
                 style = MaterialTheme.typography.titleMedium
             )
 
-            // Слот 1
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                // Exercise 3: переключайте между Alignment.Top и Alignment.CenterVertically
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "09:00",
-                    style = MaterialTheme.typography.titleSmall // Чуть крупнее для Exercise 3
-                )
-                Text(
-                    text = "CS101 Intro to Computer Science", // Длинное название для Exercise 4
-                    modifier = Modifier
-                        .weight(1f) // Exercise 4: заставляет текст сжиматься/переноситься, не выталкивая номер кабинета
-                        .padding(horizontal = 8.dp)
-                )
-                Text(text = "Lab 3")
-            }
-
-            // Слот 2
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(text = "11:00")
-                Text(
-                    text = "MATH210 Linear Algebra",
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(horizontal = 8.dp)
-                )
-                Text(text = "A-204")
-            }
-
-            // Слот 3
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(text = "14:00")
-                Text(
-                    text = "Soft Skills",
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(horizontal = 8.dp)
-                )
-                Text(text = "Hall 1")
-            }
+            ScheduleRow(time = "09:00", title = "CS101 Intro to CS", room = "Lab 3")
+            ScheduleRow(time = "11:00", title = "MATH210 Linear Algebra", room = "A-204")
+            ScheduleRow(time = "14:00", title = "Soft Skills", room = "Hall 1")
         }
         // кнопки
         Row(
@@ -154,4 +143,4 @@ fun CampusCardScreen() {
             }
         }
     }
-}
+}}
